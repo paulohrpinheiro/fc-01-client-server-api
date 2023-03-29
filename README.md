@@ -4,5 +4,5 @@ Desenvolver client e server para consulta de cotação do dólar em uma API púb
 
 ## comandos
 
-. executa o servidor: `make server`
-. executa o cliente> `make client`
+* executa o servidor: `make server`
+* executa o cliente: `make client`
