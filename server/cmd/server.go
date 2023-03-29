@@ -4,10 +4,13 @@ import (
 	"log"
 	"net/http"
 
+	serverDb "github.com/paulohrpinheiro/fc-01-client-server-api/server/infra"
 	serverService "github.com/paulohrpinheiro/fc-01-client-server-api/server/service"
 )
 
 func main() {
+	serverDb.Create()
+
 	mux := http.NewServeMux()
 	mux.HandleFunc("/cotacao", GetExchangeHandler)
 	log.Fatal(http.ListenAndServe(":8080", mux))

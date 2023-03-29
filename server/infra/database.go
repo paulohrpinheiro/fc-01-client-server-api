@@ -18,6 +18,28 @@ func connect() (*sql.DB, error) {
 	return db, nil
 }
 
+func Create() {
+	db, err := connect()
+	if err != nil {
+		panic(err)
+	}
+
+	defer db.Close()
+
+	_, err = db.Exec(`
+		CREATE TABLE IF NOT EXISTS
+			exchange
+		(
+			bid DECIMAL(10, 5),
+			t TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+		)`,
+	)
+
+	if err != nil {
+		panic(err)
+	}
+}
+
 func Write(bid string) error {
 	db, err := connect()
 	if err != nil {

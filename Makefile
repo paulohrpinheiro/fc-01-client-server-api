@@ -1,7 +1,4 @@
-createdb:
-	sqlite3 exchange.sqlite3 'CREATE TABLE IF NOT EXISTS exchange (bid DECIMAL(10, 5), t TIMESTAMP DEFAULT CURRENT_TIMESTAMP);'
-
-server: createdb
+server:
 	go run server/cmd/server.go
 
 client:
